@@ -1,0 +1,79 @@
+*, 
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    /* footer support */
+    position: relative;
+    min-height: 100%;
+}
+  
+
+body {
+    background-color: rgb(20, 15, 15);
+}
+
+.header {
+    background-color: darkgreen;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    min-height: 500px;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+.calculator {
+    border: 10px red solid;
+    padding: 20px;
+    width: 400px;
+}
+
+.screen {
+    background-color: grey;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+  
+.span-2 {
+    grid-column: span 2;
+}
+
+button {
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
+
+.footer {
+    background-color: darkgreen;
+    color: white;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
