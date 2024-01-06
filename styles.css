@@ -38,12 +38,15 @@ body {
     border: 10px red solid;
     padding: 20px;
     width: 400px;
+    background-color: darkgray;
 }
 
 .screen {
-    background-color: grey;
-    padding: 20px;
+    background-color: white;
+    padding: 10px 20px;
     margin-bottom: 20px;
+    border: 2px solid black;
+    text-align: right;
 }
 
 .buttons-grid {
@@ -76,4 +79,32 @@ button {
     align-items: center;
     justify-content: center;
     padding: 10px;
+}
+
+
+.btn {
+    padding: 15px;
+    border: 2px solid black;
+}
+
+.clear-button {
+    padding: 10px; 
+    background-color: rgb(255, 113, 113);
+    border: 2px black solid;
+}
+
+.delete-button {
+    background-color: lightblue;
+    border: 2px black solid;
+}
+
+
+.last-calc {
+    min-height: 32px;
+    font-size: 20px;
+}
+
+.current-calc {
+    min-height: 64px;
+    font-size: 40px;
 }
