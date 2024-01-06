@@ -10,14 +10,14 @@ clearButton.addEventListener('click', () => {
 })
 
 deleteButton.addEventListener('click', () => {
-    if (currentCalc.textContent == '') {
+
+    currentCalc.textContent = currentCalc.textContent.slice(0, -1);
+
+    if (currentCalc.textContent.length == 0) {
         currentCalc.textContent = '0';
-    }
-    else {
-        currentCalc.textContent = currentCalc.textContent.slice(0, -1);
-    }
+    };
     
-})
+});
 
 buttonArray.forEach(button => {
     button.addEventListener('click', function() {
@@ -53,3 +53,6 @@ function clear() {
     currentCalc.textContent = '0';
     lastCalc.textContent = '';
 }
+
+
+function operateEquation
