@@ -54,5 +54,3 @@ function clear() {
     lastCalc.textContent = '';
 }
 
-
-function operateEquation

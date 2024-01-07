@@ -14,7 +14,7 @@ html {
   
 
 body {
-    background-color: rgb(20, 15, 15);
+    background-color: rgb(0, 0, 77);
 }
 
 .header {
@@ -35,7 +35,8 @@ body {
 }
 
 .calculator {
-    border: 10px red solid;
+    border: 8px black solid;
+    border-radius: 5%;
     padding: 20px;
     width: 400px;
     background-color: darkgray;
