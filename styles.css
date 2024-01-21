@@ -109,3 +109,9 @@ button {
     min-height: 64px;
     font-size: 40px;
 }
+
+.fa-github {
+    font-size: 30px;
+    color: black;
+    padding: 0px 10px;
+}
