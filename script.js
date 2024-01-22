@@ -14,6 +14,9 @@ const dotButton = document.getElementById('dotButton');
 
 clearButton.addEventListener('click', clear);
 deleteButton.addEventListener('click', deleteItem);
+equalButton.addEventListener('click', doEquals);
+dotButton.addEventListener('click', addDot)
+
 buttonArray.forEach(button => {
     button.addEventListener('click', () => {
         addNumber(button.textContent);
@@ -22,10 +25,7 @@ buttonArray.forEach(button => {
 });
 
 operatorArray.forEach(operator => {
-    operator.addEventListener('click', function() {
-        operatorSign = operator.textContent;
-        currentCalc.textContent += operator.textContent;
-    });
+    operator.addEventListener('click', () => setOperation(operator.textContent));
 });
 
 
@@ -63,7 +63,7 @@ function doOperation(operator, num1, num2) {
         case '-':
             return subtract(num1, num2);
         case '÷':
-            if (b === 0) {
+            if (num2 === 0) {
                 return null;
             }
             else {
@@ -79,7 +79,7 @@ function doOperation(operator, num1, num2) {
 function resetScreen() {
     if (shouldScreenReset == true) {
         currentCalc.textContent = '';
-        resetScreen = false;
+        shouldScreenReset = false;
     }
 }
 
@@ -97,4 +97,31 @@ function addNumber(number) {
 
 function deleteItem() {
     currentCalc.textContent = currentCalc.textContent.slice(0, -1) || '0';
+}
+
+function setOperation(operator) {
+    if (operatorSign !== null) {
+        doEquals();
+    }
+    firstOperand = currentCalc.textContent;
+    operatorSign = operator;
+    lastCalc.textContent = `${firstOperand} ${operatorSign}`;
+
+}
+
+
+
+function doEquals() {
+    if (operatorSign === null || shouldScreenReset) {
+        return;
+    }
+    if (operatorSign === '÷' && button.textContent == 0) {
+        alert("You can't divide by 0!");
+        return;
+    }
+}
+
+
+function addDot() {
+
 }
