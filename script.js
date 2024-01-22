@@ -35,7 +35,7 @@ function add(input1, input2) {
 }
 
 function divide(input1, input2) {
-    return input1 / input2;
+    return input1/input2;
 }
 
 function multiply(input1, input2) {
@@ -50,6 +50,10 @@ function subtract(input1, input2) {
 function clear() {
     currentCalc.textContent = '0';
     lastCalc.textContent = '';
+    operatorSign = null;
+    firstOperand = '';
+    secondOperand = '';
+    shouldScreenReset = false;
 }
 
 
@@ -63,14 +67,11 @@ function doOperation(operator, num1, num2) {
         case '-':
             return subtract(num1, num2);
         case '÷':
-            if (num2 === 0) {
-                return null;
-            }
-            else {
-                return divide(num1, num2);
-            }
+            return divide(num1, num2);
         case 'x':
             return multiply(num1, num2);
+        default: 
+            return null;
     }
 
 };
@@ -85,13 +86,13 @@ function resetScreen() {
 
 
 function addNumber(number) {
-    if (currentCalc.textContent == '0') {
+    if (shouldScreenReset) {
+        resetScreen();
+    }
+    else if (currentCalc.textContent == '0') {
         currentCalc.textContent = '';
-        currentCalc.textContent += number;
     }
-    else {
-        currentCalc.textContent += number;
-    }
+    currentCalc.textContent += number;
 }
 
 
@@ -106,7 +107,7 @@ function setOperation(operator) {
     firstOperand = currentCalc.textContent;
     operatorSign = operator;
     lastCalc.textContent = `${firstOperand} ${operatorSign}`;
-
+    shouldScreenReset = true;
 }
 
 
@@ -115,13 +116,24 @@ function doEquals() {
     if (operatorSign === null || shouldScreenReset) {
         return;
     }
-    if (operatorSign === '÷' && button.textContent == 0) {
+    secondOperand = currentCalc.textContent;
+
+    if (operatorSign === '÷' && currentCalc.textContent === '0') {
         alert("You can't divide by 0!");
         return;
     }
+    
+    currentCalc.textContent = roundNumber(doOperation(operatorSign, firstOperand, secondOperand));
+    lastCalc.textContent = `${firstOperand} ${operatorSign} ${secondOperand} =`;
+    operatorSign = null;
 }
 
 
 function addDot() {
+    if (shouldScreenReset) resetScreen();
+}
 
+
+function roundNumber(num) {
+    return Math.round(num * 1000) / 1000;
 }
