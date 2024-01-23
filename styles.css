@@ -48,6 +48,8 @@ body {
     margin-bottom: 20px;
     border: 2px solid black;
     text-align: right;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 .buttons-grid {
@@ -67,6 +69,7 @@ button {
     font-size: inherit;
     cursor: pointer;
     outline: none;
+    border-radius: 10px;
 }
 
 
@@ -114,4 +117,22 @@ button {
     font-size: 30px;
     color: black;
     padding: 0px 10px;
+}
+
+
+.btn:hover {
+    background-color: bisque;
+}
+
+.clear-button:hover {
+    background-color: rgb(252, 177, 177);
+}
+
+.delete-button:hover {
+    background-color: aqua;
+}
+
+
+.btn:active {
+    background-color: rgb(217, 186, 116)
 }
