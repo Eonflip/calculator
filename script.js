@@ -2,6 +2,7 @@ let firstOperand = '';
 let secondOperand = ''; 
 let operatorSign = null;
 let shouldScreenReset = false;
+let didEqual = false; 
 
 const clearButton = document.getElementById('clearButton');
 const deleteButton = document.getElementById('deleteButton');
@@ -19,7 +20,11 @@ dotButton.addEventListener('click', addDot)
 
 buttonArray.forEach(button => {
     button.addEventListener('click', () => {
+        if (didEqual === true) {
+            currentCalc.textContent = '';
+        }
         addNumber(button.textContent);
+        didEqual = false;
     });
 
 });
@@ -113,6 +118,7 @@ function setOperation(operator) {
 
 
 function doEquals() {
+    didEqual = true;
     if (operatorSign === null || shouldScreenReset) {
         return;
     }
