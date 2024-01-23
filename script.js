@@ -130,7 +130,17 @@ function doEquals() {
 
 
 function addDot() {
-    if (shouldScreenReset) resetScreen();
+    if (shouldScreenReset) {
+        resetScreen();
+    }
+    if (currentCalc.textContent === '') {
+        currentCalc.textContent = '0';
+    }
+    if (currentCalc.textContent.includes('.')) {
+        return;
+    }
+    currentCalc.textContent += '.';
+
 }
 
 
